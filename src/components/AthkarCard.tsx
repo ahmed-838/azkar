@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoRepeat, IoCheckmark, IoInformation, IoBookmark } from 'react-icons/io5';
-import { Thikr } from '@/data/morning-athkar';
+import { PrayerThikr } from '@/data/prayer-athkar';
 
 interface AthkarCardProps {
-  thikr: Thikr;
-  type: 'morning' | 'evening';
+  thikr: PrayerThikr;
+  type: "morning" | "evening" | "prayer";
   onComplete?: () => void;
 }
 
@@ -82,11 +82,6 @@ export function AthkarCard({ thikr, type, onComplete }: AthkarCardProps) {
             {thikr.reference && (
               <span className="px-4 py-1.5 rounded-full text-sm bg-primary/10 text-primary/90 font-medium">
                 {thikr.reference}
-              </span>
-            )}
-            {thikr.category && (
-              <span className="px-4 py-1.5 rounded-full text-sm bg-gray-100/80 dark:bg-gray-700/50">
-                {thikr.category}
               </span>
             )}
             {thikr.benefit && (

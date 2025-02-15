@@ -4,6 +4,7 @@ export interface PrayerThikr {
     count: number;
     reference?: string;
     benefit?: string;
+    category?: string;
   }
   
   export interface Prayer {
