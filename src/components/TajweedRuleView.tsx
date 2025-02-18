@@ -34,31 +34,39 @@ export function TajweedRuleView({ rule }: Props) {
               </p>
             </div>
 
+
             <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">تحفة الأطفال</h2>
               <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6">
-                <div className="font-arabic text-lg leading-loose text-center space-y-4">
+                <div className="font-arabic text-lg leading-loose space-y-8">
                   {rule.poem.map((verse, index) => (
-                    <p key={index}>
-                      {verse.firstHalf} {verse.secondHalf}
-                    </p>
+                    <div key={index} className="space-y-4">
+                      <p className="text-center">
+                        {verse.firstHalf} {verse.secondHalf}
+                      </p>
+                      {verse.explanation && (
+                        <p className="text-sm text-gray-600 dark:text-gray-400 pr-6 border-r-2 border-primary/20">
+                          {verse.explanation}
+                        </p>
+                      )}
+                    </div>
                   ))}
                 </div>
-                <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
+                <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-6">
                   {rule.poemReference}
                 </p>
               </div>
             </div>
 
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <h2 className="text-xl font-semibold mb-4">أهمية الحكم</h2>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                 {rule.importance}
               </p>
-            </div>
+            </div> */}
 
             <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">آيات قرآنية</h2>
+              <h2 className="text-xl font-semibold mb-4">تطبيق علي {rule.hokm}</h2>
               <div className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6">
                 <p className="text-xl font-arabic leading-loose text-center">
                   {rule.verseText}
@@ -68,44 +76,7 @@ export function TajweedRuleView({ rule }: Props) {
                 </p>
               </div>
             </div>
-
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold mb-4">الأمثلة التطبيقية</h2>
-              <div className="space-y-6">
-                {rule.examples.map((example) => (
-                  <div 
-                    key={example.id}
-                    className="bg-gray-50 dark:bg-gray-700/50 rounded-2xl p-6"
-                  >
-                    <div className="mb-4">
-                      <h3 className="text-lg font-semibold mb-2 font-arabic">
-                        {example.verseText}
-                      </h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400 text-left">
-                        {rule.surahName} {rule.verseNumber}
-                      </p>
-                    </div>
-
-                    <AudioPlayer url={example.audioUrl} />
-
-                    <p className="mt-4 text-gray-600 dark:text-gray-400">
-                      {example.explanation}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {rule.commonMistakes && (
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold mb-4">الأخطاء الشائعة</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
-                  {rule.commonMistakes.map((mistake, index) => (
-                    <li key={index}>{mistake}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            
           </div>
         </article>
       </div>

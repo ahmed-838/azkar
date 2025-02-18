@@ -3,7 +3,6 @@ export interface TajweedExample {
   verseText: string;
   verseReference: string;
   audioUrl: string;
-  explanation: string;
 }
 
 export interface TajweedRule {
@@ -12,7 +11,6 @@ export interface TajweedRule {
   arabicTitle: string;
   description: string;
   category: 
-    | "مخارج وصفات الحروف"
     | "إدغام الحروف"
     | "أحكام النون الساكنة والتنوين"
     | "أحكام الميم الساكنة"
@@ -20,60 +18,27 @@ export interface TajweedRule {
     | "احكام الراءات"
     | "أحكام الوقف والابتداء"
     | "متون التجويد";
-  importance: string;
   verseText: string;
   surahName: string;
   verseNumber: string;
   poem: PoemVerse[];
   poemReference: string;
-  examples: TajweedExample[];
-  commonMistakes: string[];
+  application?: string;
 }
 
 export interface PoemVerse {
   firstHalf: string;
   secondHalf: string;
+  explanation?: string;
 }
 
 export const tajweedRules: TajweedRule[] = [
-  {
-    id: "makharij",
-    title: "مخارج وصفات الحروف",
-    arabicTitle: "مخارج وصفات الحروف",
-    category: "مخارج وصفات الحروف",
-    description: "المخارج هي مواضع خروج الحروف من الفم واللسان والشفتين والحلق",
-    importance: "معرفة مخارج الحروف أساس النطق الصحيح للقرآن الكريم",
-    verseText: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-    surahName: "الفاتحة",
-    verseNumber: "1",
-    poem: [
-      {
-        firstHalf: "مَخَارِجُ الحُرُوفِ سَبْعَةَ عَشَرْ",
-        secondHalf: "عَلَى الَّذِي يَخْتَارُهُ مَنِ اخْتَبَرْ"
-      }
-    ],
-    poemReference: "متن الجزرية - ابن الجزري",
-    examples: [
-      {
-        id: 1,
-        verseText: "الْحَمْدُ",
-        verseReference: "الفاتحة: 1",
-        audioUrl: "/audio/tajweed/makharij/example1.mp3",
-        explanation: "مثال على مخرج حرف الحاء من الحلق"
-      }
-    ],
-    commonMistakes: [
-      "الخلط بين مخرج الحاء والهاء",
-      "عدم إخراج الحروف من مخارجها الصحيحة"
-    ]
-  },
   {
     id: "idgham-huroof",
     title: "إدغام الحروف",
     arabicTitle: "إدغام الحروف",
     category: "إدغام الحروف",
     description: "إدخال حرف ساكن في حرف متحرك بحيث يصيران حرفاً واحداً مشدداً",
-    importance: "يساعد في تحقيق الانسجام الصوتي وتسهيل النطق",
     verseText: "قُل رَّبِّ",
     surahName: "المؤمنون",
     verseNumber: "93",
@@ -84,19 +49,7 @@ export const tajweedRules: TajweedRule[] = [
       }
     ],
     poemReference: "متن تحفة الأطفال",
-    examples: [
-      {
-        id: 1,
-        verseText: "قُل رَّبِّ",
-        verseReference: "المؤمنون: 93",
-        audioUrl: "/audio/tajweed/idgham-huroof/example1.mp3",
-        explanation: "إدغام اللام في الراء"
-      }
-    ],
-    commonMistakes: [
-      "عدم إدغام الحرفين بشكل كامل",
-      "إظهار الحرف الأول"
-    ]
+
   },
   {
     id: "noon-sakinah",
@@ -104,35 +57,68 @@ export const tajweedRules: TajweedRule[] = [
     arabicTitle: "أحكام النون الساكنة والتنوين",
     category: "أحكام النون الساكنة والتنوين",
     description: "للنون الساكنة والتنوين أربعة أحكام: الإظهار والإدغام والإقلاب والإخفاء",
-    importance: "من أهم أحكام التجويد وأكثرها وروداً في القرآن الكريم",
     verseText: "مِن بَعْدِ مَا جَاءَكَ مِنَ الْعِلْمِ",
     surahName: "البقرة",
     verseNumber: "120",
+    application: "النون الساكنة والتنوين يتم استخدامها في القرآن الكريم في أغلب الآيات",
     poem: [
       {
         firstHalf: "لِلنُّونِ إِنْ تَسْكُنْ وَلِلتَّنْوِينِ",
-        secondHalf: "أَرْبَعُ أَحْكَامٍ فَخُذْ تَبْيِينِي"
+        secondHalf: "أَرْبَعُ أَحْكَامٍ فَخُذْ تَبْيِينِي",
+        explanation: "للنون الساكنة والتنوين أربعة أحكام سيتم شرحها في الأبيات التالية"
       },
       {
         firstHalf: "فَالأَوَّلُ الإِظْهَارُ قَبْلَ أَحْرُفِ",
-        secondHalf: "لِلْحَلْقِ سِتٍّ رُتِّبَتْ فَلْتَعْرِفِ"
+        secondHalf: "لِلْحَلْقِ سِتٍّ رُتِّبَتْ فَلْتَعْرِفِ",
+        explanation: "الحكم الأول هو الإظهار، ويكون قبل ستة أحرف من حروف الحلق"
+      },
+      {
+        firstHalf: "هَمْزٌ فَهَاءٌ ثُمَّ عَيْنٌ حَاءُ",
+        secondHalf: "مُهْمَلَتَانِ ثُمَّ غَيْنٌ خَاءُ",
+        explanation: "حروف الحلق الستة هي: الهمزة والهاء والعين والحاء والغين والخاء"
+      },
+      {
+        firstHalf: "وَالثَّانِ إِدْغَامٌ بِسِتَّةٍ أَتَتْ",
+        secondHalf: "فِي يَرْمُلُونَ عِنْدَهُمْ قَدْ ثَبَتَتْ",
+        explanation: "الحكم الثاني هو الإدغام، ويكون في ستة أحرف مجموعة في كلمة (يرملون)"
+      },
+      {
+        firstHalf: "لَكِنَّهَا قِسْمَانِ قِسْمٌ يُدْغَمَا",
+        secondHalf: "فِيهِ بِغُنَّةٍ بِيَنْمُو عُلِمَا",
+        explanation: "الإدغام نوعان: إدغام بغنة في أحرف (ينمو) وإدغام بغير غنة في (الراء واللام)"
+      },
+      {
+        firstHalf: "إِلَّا إِذَا كَانَ بِكَلْمَةٍ فَلَا",
+        secondHalf: "تُدْغِمْ كَدُنْيَا ثُمَّ صِنْوَانٍ تَلَا",
+        explanation: "لا يتم الإدغام إذا اجتمع الحرفان في كلمة واحدة مثل: دنيا وصنوان"
+      },
+      {
+        firstHalf: "وَالثَّانِي إِدْغَامٌ بِغَيْرِ غُنَّهْ",
+        secondHalf: "فِي اللَّامِ وَالرَّا ثُمَّ كَرِّرَنَّهْ",
+        explanation: "النوع الثاني من الإدغام هو بغير غنة ويكون في حرفي اللام والراء"
+      },
+      {
+        firstHalf: "وَالثَّالِثُ الإِقْلَابُ عِنْدَ الْبَاءِ",
+        secondHalf: "مِيمًا بِغُنَّةٍ مَعَ الإِخْفَاءِ",
+        explanation: "الحكم الثالث هو الإقلاب، وهو قلب النون الساكنة أو التنوين ميماً عند حرف الباء"
+      },
+      {
+        firstHalf: "وَالرَّابِعُ الإِخْفَاءُ عِنْدَ الْفَاضِلِ",
+        secondHalf: "مِنَ الْحُرُوفِ وَاجِبٌ لِلْفَاضِلِ",
+        explanation: "الحكم الرابع هو الإخفاء، ويكون عند باقي الحروف غير المذكورة في الأحكام السابقة"
+      },
+      {
+        firstHalf: "فِي خَمْسَةٍ مِنْ بَعْدِ عَشْرٍ رَمْزُهَا",
+        secondHalf: "فِي كَلِمِ هَذَا الْبَيْتِ قَدْ ضَمَّنْتُهَا",
+        explanation: "حروف الإخفاء خمسة عشر حرفاً، سيتم ذكرها في البيت التالي"
+      },
+      {
+        firstHalf: "صِفْ ذَا ثَنَا كَمْ جَادَ شَخْصٌ قَدْ سَمَا",
+        secondHalf: "دُمْ طَيِّبًا زِدْ فِي تُقًى ضَعْ ظَالِمَا",
+        explanation: "حروف الإخفاء هي: (ص، ذ، ث، ك، ج، ش، ق، س، د، ط، ز، ف، ت، ض، ظ)"
       }
     ],
     poemReference: "متن تحفة الأطفال - الإمام سليمان الجمزوري",
-    examples: [
-      {
-        id: 1,
-        verseText: "مِنْ خَيْرٍ",
-        verseReference: "البقرة: 105",
-        audioUrl: "/audio/tajweed/noon-sakinah/example1.mp3",
-        explanation: "إظهار النون الساكنة عند حرف الخاء"
-      }
-    ],
-    commonMistakes: [
-      "عدم إظهار النون الساكنة عند حروف الحلق",
-      "الخلط بين أحكام النون الساكنة المختلفة",
-      "عدم مراعاة الغنة في مواضعها"
-    ]
   },
   {
     id: "madd",
@@ -140,7 +126,6 @@ export const tajweedRules: TajweedRule[] = [
     arabicTitle: "أحكام المد",
     category: "أحكام المد في التجويد",
     description: "المد هو إطالة الصوت بحرف من حروف المد الثلاثة عند وجود سبب للمد",
-    importance: "يساهم في جمال التلاوة وضبط المعاني",
     verseText: "قَالُوا آمَنَّا",
     surahName: "البقرة",
     verseNumber: "14",
@@ -151,19 +136,6 @@ export const tajweedRules: TajweedRule[] = [
       }
     ],
     poemReference: "متن الجزرية",
-    examples: [
-      {
-        id: 1,
-        verseText: "قَالُوا",
-        verseReference: "البقرة: 14",
-        audioUrl: "/audio/tajweed/madd/example1.mp3",
-        explanation: "مد طبيعي بمقدار حركتين"
-      }
-    ],
-    commonMistakes: [
-      "المد أكثر من المقدار المطلوب",
-      "قصر المد الواجب"
-    ]
   },
   {
     id: "raa",
@@ -171,7 +143,6 @@ export const tajweedRules: TajweedRule[] = [
     arabicTitle: "أحكام الراءات",
     category: "احكام الراءات",
     description: "للراء حالتان: التفخيم والترقيق، ولكل منهما مواضع محددة",
-    importance: "نطق حرف الراء بالشكل الصحيح حسب موقعه",
     verseText: "رَبِّ الْعَالَمِينَ",
     surahName: "الفاتحة",
     verseNumber: "2",
@@ -182,19 +153,6 @@ export const tajweedRules: TajweedRule[] = [
       }
     ],
     poemReference: "متن تحفة الأطفال",
-    examples: [
-      {
-        id: 1,
-        verseText: "فِرْعَوْنَ",
-        verseReference: "القصص: 3",
-        audioUrl: "/audio/tajweed/raa/example1.mp3",
-        explanation: "ترقيق الراء الساكنة بعد كسر"
-      }
-    ],
-    commonMistakes: [
-      "تفخيم الراء المكسورة",
-      "ترقيق الراء المفتوحة"
-    ]
   },
   {
     id: "waqf",
@@ -202,7 +160,6 @@ export const tajweedRules: TajweedRule[] = [
     arabicTitle: "الوقف والابتداء",
     category: "أحكام الوقف والابتداء",
     description: "علم يُعرف به مواضع الوقف والابتداء في القرآن الكريم",
-    importance: "فهم المعاني وضبط التلاوة وتجنب اللبس في المعنى",
     verseText: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
     surahName: "الفاتحة",
     verseNumber: "2",
@@ -213,19 +170,6 @@ export const tajweedRules: TajweedRule[] = [
       }
     ],
     poemReference: "متن الجزرية",
-    examples: [
-      {
-        id: 1,
-        verseText: "الْحَمْدُ لِلَّهِ ۚ",
-        verseReference: "الفاتحة: 2",
-        audioUrl: "/audio/tajweed/waqf/example1.mp3",
-        explanation: "وقف تام لتمام المعنى"
-      }
-    ],
-    commonMistakes: [
-      "الوقف في مواضع غير مناسبة",
-      "الابتداء من موضع يخل بالمعنى"
-    ]
   },
   {
     id: "mutoon",
@@ -233,7 +177,6 @@ export const tajweedRules: TajweedRule[] = [
     arabicTitle: "متون التجويد",
     category: "متون التجويد",
     description: "المنظومات الشعرية التي تضم قواعد علم التجويد",
-    importance: "حفظ وضبط قواعد التجويد بشكل منظم وميسر",
     verseText: "وَبَعْدُ: هَذَا الْعِلْمُ لَا يُجْهَلُ",
     surahName: "متن الجزرية",
     verseNumber: "المقدمة",
@@ -244,18 +187,5 @@ export const tajweedRules: TajweedRule[] = [
       }
     ],
     poemReference: "متن الجزرية - ابن الجزري",
-    examples: [
-      {
-        id: 1,
-        verseText: "وَبَعْدُ: هَذَا الْعِلْمُ لَا يُجْهَلُ",
-        verseReference: "متن الجزرية",
-        audioUrl: "/audio/tajweed/mutoon/example1.mp3",
-        explanation: "مقدمة متن الجزرية في علم التجويد"
-      }
-    ],
-    commonMistakes: [
-      "عدم فهم معاني المتون",
-      "الخلط بين قواعد المتون المختلفة"
-    ]
   }
 ]; 
