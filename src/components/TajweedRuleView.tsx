@@ -3,18 +3,13 @@
 import { TajweedRule } from '@/data/tajweed-rules';
 import { AudioPlayer } from '@/components/AudioPlayer';
 import Link from 'next/link';
-import { IoArrowBack, IoVolumeHigh } from 'react-icons/io5';
+import { IoArrowBack } from 'react-icons/io5';
 
 interface Props {
   rule: TajweedRule;
 }
 
 export function TajweedRuleView({ rule }: Props) {
-  const handlePlayAudio = (audioUrl: string) => {
-    const audio = new Audio(audioUrl);
-    audio.play();
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
