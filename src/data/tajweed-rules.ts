@@ -1,29 +1,22 @@
 export interface TajweedExample {
-  id: number;
+  id: string;
+  title: string;
+  description: string;
   verseText: string;
   verseReference: string;
-  audioUrl: string;
+  audioUrl?: string;
+  application: string;
 }
 
 export interface TajweedRule {
   id: string;
-  title: string;
   arabicTitle: string;
+  title: string;
+  category: string;
   description: string;
-  category: 
-    | "إدغام الحروف"
-    | "أحكام النون الساكنة والتنوين"
-    | "أحكام الميم الساكنة"
-    | "أحكام المد في التجويد"
-    | "احكام الراءات"
-    | "أحكام الوقف والابتداء"
-    | "متون التجويد";
-  verseText: string;
-  surahName: string;
-  verseNumber: string;
   poem: PoemVerse[];
+  examples: TajweedExample[];
   poemReference: string;
-  application?: string;
 }
 
 export interface PoemVerse {
@@ -34,33 +27,11 @@ export interface PoemVerse {
 
 export const tajweedRules: TajweedRule[] = [
   {
-    id: "idgham-huroof",
-    title: "إدغام الحروف",
-    arabicTitle: "إدغام الحروف",
-    category: "إدغام الحروف",
-    description: "إدخال حرف ساكن في حرف متحرك بحيث يصيران حرفاً واحداً مشدداً",
-    verseText: "قُل رَّبِّ",
-    surahName: "المؤمنون",
-    verseNumber: "93",
-    poem: [
-      {
-        firstHalf: "وَالثَّانِ إِدْغَامٌ بِمِثْلٍ كُرِّرَا",
-        secondHalf: "وَمُتَقَارِبٍ وَمُتَجَانِسَا"
-      }
-    ],
-    poemReference: "متن تحفة الأطفال",
-
-  },
-  {
     id: "noon-sakinah",
-    title: "أحكام النون الساكنة والتنوين",
     arabicTitle: "أحكام النون الساكنة والتنوين",
-    category: "أحكام النون الساكنة والتنوين",
-    description: "للنون الساكنة والتنوين أربعة أحكام: الإظهار والإدغام والإقلاب والإخفاء",
-    verseText: "مِن بَعْدِ مَا جَاءَكَ مِنَ الْعِلْمِ",
-    surahName: "البقرة",
-    verseNumber: "120",
-    application: "النون الساكنة والتنوين يتم استخدامها في القرآن الكريم في أغلب الآيات",
+    title: "Noon Sakinah Rules",
+    category: "الأحكام الأساسية",
+    description: "النون الساكنة والتنوين لهما أربعة أحكام رئيسية: الإظهار، الإدغام، الإقلاب، والإخفاء",
     poem: [
       {
         firstHalf: "لِلنُّونِ إِنْ تَسْكُنْ وَلِلتَّنْوِينِ",
@@ -118,74 +89,135 @@ export const tajweedRules: TajweedRule[] = [
         explanation: "حروف الإخفاء هي: (ص، ذ، ث، ك، ج، ش، ق، س، د، ط، ز، ف، ت، ض، ظ)"
       }
     ],
-    poemReference: "متن تحفة الأطفال - الإمام سليمان الجمزوري",
-  },
-  {
-    id: "madd",
-    title: "أحكام المد",
-    arabicTitle: "أحكام المد",
-    category: "أحكام المد في التجويد",
-    description: "المد هو إطالة الصوت بحرف من حروف المد الثلاثة عند وجود سبب للمد",
-    verseText: "قَالُوا آمَنَّا",
-    surahName: "البقرة",
-    verseNumber: "14",
-    poem: [
+    examples: [
       {
-        firstHalf: "وَالْمَدُّ أَصْلِيٌّ وَفَرْعِيٌّ لَهُ",
-        secondHalf: "وَسَمِّ أَوَّلاً طَبِيعِيًّا وَلَهْ"
+        id: "idhar",
+        title: "الإظهار",
+        description: "إظهار النون الساكنة عند حروف الحلق الستة (ء ه ع ح غ خ)",
+        verseText: "مَنْ آمَنَ",
+        verseReference: "البقرة: 62",
+        audioUrl: "/audio/ayat/104008.mp3",
+        application: "عند النطق نظهر النون الساكنة بوضوح عند حروف الحلق دون غنة زائدة"
+      },
+      {
+        id: "idgham",
+        title: "الإدغام",
+        description: "إدغام النون الساكنة في حروف (يرملون)",
+        verseText: "مِن رَّبِّهِمْ",
+        verseReference: "البقرة: 5",
+        audioUrl: "/audio/ayat/104008.mp3",
+        application: "تدغم النون الساكنة في الحرف الذي يليها مع غنة في (ينمو) وبدون غنة في (ل ر)"
+      },
+      {
+        id: "iqlab",
+        title: "الإقلاب",
+        description: "قلب النون الساكنة ميماً عند حرف الباء",
+        verseText: "مِنۢ بَعْدِ",
+        verseReference: "البقرة: 27",
+        audioUrl: "/audio/ayat/104008.mp3",
+        application: "تقلب النون الساكنة ميماً مع الغنة عند حرف الباء"
+      },
+      {
+        id: "ikhfa",
+        title: "الإخفاء",
+        description: "إخفاء النون الساكنة عند الحروف المتبقية",
+        verseText: "مِن قَبْلِكَ",
+        verseReference: "البقرة: 4",
+        audioUrl: "/audio/ayat/104008.mp3",
+        application: "تخفى النون الساكنة عند باقي الحروف مع غنة"
       }
     ],
-    poemReference: "متن الجزرية",
+    poemReference: "متن تحفة الأطفال للجمزوري"
   },
   {
-    id: "raa",
-    title: "أحكام الراءات",
-    arabicTitle: "أحكام الراءات",
-    category: "احكام الراءات",
-    description: "للراء حالتان: التفخيم والترقيق، ولكل منهما مواضع محددة",
-    verseText: "رَبِّ الْعَالَمِينَ",
-    surahName: "الفاتحة",
-    verseNumber: "2",
+    id: "mushaddad-noon-meem",
+    arabicTitle: "أحكام النون والميم المشدَّدتين",
+    title: "Mushaddad Noon and Meem Rules",
+    category: "الأحكام الأساسية",
+    description: "النون والميم المشددتان لهما حكم واحد وهو الغنة المشددة",
     poem: [
       {
-        firstHalf: "وَرَقِّقَنْ رَاءً إِذَا مَا كُسِرَتْ",
-        secondHalf: "أَوْ كَانَتْ السَّاكِنَةُ مِنْ بَعْدِ كَسْرْ"
+        firstHalf: "وغنَّ ميمًا ثم نونًا شدِّدا",
+        secondHalf: "وسمِّ كلاًّ حرف غنة بدا",
+        explanation: "يجب إظهار الغنة في النون والميم المشددتين"
       }
     ],
-    poemReference: "متن تحفة الأطفال",
+    examples: [
+      {
+        id: "mushaddad-example",
+        title: "الغنة في النون والميم المشددتين",
+        description: "إظهار الغنة في النون والميم المشددتين",
+        verseText: "إِنَّ - ثُمَّ",
+        verseReference: "أمثلة عامة",
+        application: "نظهر الغنة بمقدار حركتين في النون والميم المشددتين"
+      }
+    ],
+    poemReference: "متن تحفة الأطفال للجمزوري"
   },
   {
-    id: "waqf",
-    title: "الوقف والابتداء",
-    arabicTitle: "الوقف والابتداء",
-    category: "أحكام الوقف والابتداء",
-    description: "علم يُعرف به مواضع الوقف والابتداء في القرآن الكريم",
-    verseText: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
-    surahName: "الفاتحة",
-    verseNumber: "2",
+    id: "sakinah-meem",
+    arabicTitle: "أحكام الميم الساكنة",
+    title: "Sakinah Meem Rules",
+    category: "الأحكام الأساسية",
+    description: "للميم الساكنة ثلاثة أحكام: الإخفاء الشفوي، الإدغام المتماثل، والإظهار الشفوي",
     poem: [
       {
-        firstHalf: "وَالْوَقْفُ تَامٌ وَكَافٍ وَحَسَنْ",
-        secondHalf: "وَقَبِيحٌ وَلَهُ أَيْضاً سُنَنْ"
-      }
-    ],
-    poemReference: "متن الجزرية",
-  },
-  {
-    id: "mutoon",
-    title: "متون التجويد",
-    arabicTitle: "متون التجويد",
-    category: "متون التجويد",
-    description: "المنظومات الشعرية التي تضم قواعد علم التجويد",
-    verseText: "وَبَعْدُ: هَذَا الْعِلْمُ لَا يُجْهَلُ",
-    surahName: "متن الجزرية",
-    verseNumber: "المقدمة",
-    poem: [
+        firstHalf: "والميم إن تسكن تَجِي قبل الهجا",
+        secondHalf: "لا ألف لينةٍ لذي الحجا",
+        explanation: "بيان أن الميم الساكنة تأتي قبل الحروف الهجائية ما عدا الألف اللينة"
+      },
       {
-        firstHalf: "يَقُولُ رَاجِي رَحْمَةِ الْغَفُورِ",
-        secondHalf: "مُحَمَّدٌ هُوَ ابْنُ الْجَزَرِي"
+        firstHalf: "أحكامها ثلاثةٌ لمن ضبط",
+        secondHalf: "إخفاء ادغام وإظهار فقط",
+        explanation: "للميم الساكنة ثلاثة أحكام: الإخفاء والإدغام والإظهار"
+      },
+      {
+        firstHalf: "فالأول الإخفاء عند الباء",
+        secondHalf: "وسمِّه الشفْوي للقراء",
+        explanation: "الحكم الأول هو الإخفاء الشفوي عند حرف الباء"
+      },
+      {
+        firstHalf: "والثاني إدغام بمثلها أتى",
+        secondHalf: "وسمِّ إدغامًا صغيرًا يا فتى",
+        explanation: "الحكم الثاني هو الإدغام المتماثل عند الميم"
+      },
+      {
+        firstHalf: "والثالث الإظهار في البقيه",
+        secondHalf: "من أحرف وسمِّها شفويه",
+        explanation: "الحكم الثالث هو الإظهار الشفوي عند باقي الحروف"
+      },
+      {
+        firstHalf: "واحذر لدى واوٍ وفا أن تختفي",
+        secondHalf: "لقربها ولاتحاد فاعرفِ",
+        explanation: "التنبيه على عدم إخفاء الميم الساكنة عند الواو والفاء رغم قربهما في المخرج"
       }
     ],
-    poemReference: "متن الجزرية - ابن الجزري",
+    examples: [
+      {
+        id: "meem-ikhfa",
+        title: "الإخفاء الشفوي",
+        description: "إخفاء الميم الساكنة عند الباء",
+        verseText: "هُم بِهِ",
+        verseReference: "مثال عام",
+        application: "تخفى الميم الساكنة عند الباء مع الغنة"
+      },
+      {
+        id: "meem-idgham",
+        title: "الإدغام المتماثل",
+        description: "إدغام الميم الساكنة في الميم",
+        verseText: "لَهُم مَّا",
+        verseReference: "مثال عام",
+        application: "تدغم الميم الساكنة في الميم التي بعدها"
+      },
+      {
+        id: "meem-idhar",
+        title: "الإظهار الشفوي",
+        description: "إظهار الميم الساكنة عند باقي الحروف",
+        verseText: "عَلَيْهِمْ غَيْرِ",
+        verseReference: "مثال عام",
+        application: "تظهر الميم الساكنة عند جميع الحروف ما عدا الباء والميم"
+      }
+    ],
+    poemReference: "متن تحفة الأطفال للجمزوري"
   }
 ]; 
