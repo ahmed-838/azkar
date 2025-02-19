@@ -25,6 +25,13 @@ const sections = [
     description: "الأذكار المستحبة بعد كل صلاة",
     icon: <IoPlay size={24} />,
     time: "بعد كل صلاة مفروضة"
+  },
+  {
+    title: "الأدعية المأثورة من القرآن الكريم",
+    href: "/quran-duas",
+    description: "مجموعة من الأدعية المأثورة عن النبي ﷺ",
+    icon: <IoBook size={24} />,
+    time: "أدعية لكل وقت وحال"
   }
 ];
 
@@ -51,20 +58,6 @@ const quranLearning = [
     icon: <IoPause size={24} />,
     time: "دروس نظرية وتطبيقية"
   },
-  // {
-  //   title: "فائدة الروم والإشمام",
-  //   href: "/rom-and-ishmam",
-  //   description: "تعلم فائدة الروم والإشمام في القرآن الكريم",
-  //   icon: <IoPause size={24} />,
-  //   time: "دروس نظرية وتطبيقية"
-  // },
-  // {
-  //   title: "اﻷلفات السبعة",
-  //   href: "/seven-letters",
-  //   description: "تعلم أحكام الألفات السبعة في القرآن الكريم",
-  //   icon: <IoPause size={24} />,
-  //   time: "دروس نظرية وتطبيقية"
-  // }
 ];
 
 export default function Home() {
