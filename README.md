@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Athkar - Daily Adhkar & Quran Learning App
 
-## Getting Started
+![Project Banner](./assets/banner.png)
 
-First, run the development server:
+Athkar is an interactive web application that displays daily Adhkar and authentic supplications along with Quran learning features. Built with **Next.js**, it offers a modern UI and an enhanced user experience.
+
+## ✨ Features
+- Morning and Evening Adhkar
+- Post-Prayer Adhkar
+- Authentic supplications from the Quran and Sunnah
+- Tajweed lessons and articulation points
+- Attractive and interactive user interface
+- Dark Mode support
+- Smooth animations and visual effects
+
+## 🛠 Tech Stack
+- **Next.js**
+- **React**
+- **Tailwind CSS**
+- **Framer Motion**
+- **React Icons**
+
+## 🖼 Screenshots
+<div align="center">
+  <img src="./assets/home.png" alt="Home Page" width="200" height="400">
+  <img src="./assets/Morning.png" alt="Morning Adhkar" width="200" height="400">
+    <img src="./assets/Morning2.png" alt="Morning Adhkar" width="200" height="400">
+  <img src="./assets/Tajweed.png" alt="Tajweed Lessons" width="200" height="400">
+</div>
+
+## 🚀 Website Performance 
+
+<div align="center">
+  <img src="./assets/performance.png" alt="performance" width="200" height="400">
+  <img src="./assets/performance2.png" alt="performance" width="200" height="400">
+</div>
+
+
+## 🚀 Running Locally
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ahmed-838/azkar.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd azkar
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install dependencies:
 
-## Learn More
+```bash
+npm install  # or yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev  # or yarn dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open your browser and visit:
 
-## Deploy on Vercel
+```
+http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌍 Live Demo
+Access the live application here: [Live Demo](#)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+We welcome contributions! Follow these steps to contribute:
+
+1. **Fork** the repository
+2. Create a new branch:
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. Open a **Pull Request**
+
+## 📜 License
+This project is licensed under the **MIT License**.
+
+---
+<div align="center">
+  <sub>Made with ❤️ by <a href="https://github.com/ahmed-838">Ahmed Abd Elmohsen</a></sub>
+</div>
