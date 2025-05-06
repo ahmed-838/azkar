@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #f3f6f4;
-  --foreground: #1a3025;
-  --primary: #2d7357;
-  --secondary: #5c8d76;
-  --accent: #a3c1ad;
+  --background: #f8f9f6;
+  --foreground: #2c3e30;
+  --primary: #2a7d54;
+  --secondary: #5b9178;
+  --accent: #aed3ba;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,8 +29,8 @@ body {
 /* نمط إسلامي خفيف في الخلفية */
 .islamic-pattern {
   background-color: var(--background);
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%234a9e78' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M40 0a40 40 0 0 1 40 40v40H40A40 40 0 0 1 0 40V0h40zm0 10a30 30 0 0 0-30 30v30h30a30 30 0 0 0 30-30V10H40z'/%3E%3C/g%3E%3C/svg%3E"),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30 30 60 0 30z' fill='%234a9e78' fill-opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='var(--primary)' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M40 0a40 40 0 0 1 40 40v40H40A40 40 0 0 1 0 40V0h40zm0 10a30 30 0 0 0-30 30v30h30a30 30 0 0 0 30-30V10H40z'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30 30 60 0 30z' fill='var(--primary)' fill-opacity='0.03'/%3E%3C/svg%3E");
   background-position: center center, top left;
   background-size: 80px 80px, 60px 60px;
   position: relative;
@@ -45,8 +45,8 @@ body {
   width: 100%;
   height: 100%;
   background: radial-gradient(circle at 50% 0%, 
-              rgba(74, 158, 120, 0.15) 0%, 
-              rgba(74, 158, 120, 0.05) 30%, 
+              rgba(42, 125, 84, 0.12) 0%, 
+              rgba(42, 125, 84, 0.04) 30%, 
               transparent 70%);
   pointer-events: none;
 }
@@ -67,7 +67,7 @@ body {
   background: linear-gradient(
     90deg, 
     transparent, 
-    rgba(74, 158, 120, 0.1), 
+    rgba(42, 125, 84, 0.15), 
     transparent
   );
   transition: 0.5s;
@@ -79,6 +79,6 @@ body {
 
 /* تأثير الظل للعناصر */
 .shadow-islamic {
-  box-shadow: 0 4px 6px -1px rgba(45, 115, 87, 0.1),
-              0 2px 4px -1px rgba(45, 115, 87, 0.06);
+  box-shadow: 0 4px 12px -2px rgba(42, 125, 84, 0.15),
+              0 2px 6px -1px rgba(42, 125, 84, 0.08);
 }
